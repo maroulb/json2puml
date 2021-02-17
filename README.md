@@ -1,6 +1,6 @@
 # json2puml
 
-little helpers to convert [DAGs](https://en.wikipedia.org/wiki/Directed_acyclic_graph) represented in a JSON file into a [PlantUML](https://plantuml.com/) SVG file.
+little helper to convert [DAGs](https://en.wikipedia.org/wiki/Directed_acyclic_graph) represented in a JSON file into a [PlantUML](https://plantuml.com/) SVG file.
 
 ### install dependencies
 
