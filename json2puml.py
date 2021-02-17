@@ -22,7 +22,7 @@ def createPuml(filename, graph):
 	localgraph = copy.deepcopy(graph)
 	n = 0
 	replaced = {}
-	for node in localgraph.keys():
+	for node in localgraph.keys(): # create agents
 		nn = str(n)
 		name = node
 		if len(name) > 15:
@@ -32,16 +32,17 @@ def createPuml(filename, graph):
 		puml.write(line + '\n')
 		replaced[node] = 'n' + nn
 		n = n + 1
-	for node in localgraph.keys():
+	for node in localgraph.keys(): # replace long names and set agents
 		for value in localgraph[node]:
 			localgraph[node][(localgraph[node]).index(value)] = replaced[value]
 		localgraph[replaced[node]] = localgraph.pop(node)
-	for node in localgraph.keys():
+	for node in localgraph.keys(): # create puml nodes
 		for value in localgraph[node]:
 			line = node + ' --> ' + value
 			puml.write(line + '\n')
 	puml.write('@enduml')
 	puml.close()
+
 
 pumlName = source.replace('.json', '') + '.puml'
 createPuml(pumlName, graph)
